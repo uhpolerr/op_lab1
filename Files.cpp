@@ -11,18 +11,18 @@
 using namespace std;
 
 
-//функція для запиту в користувача імені файлу 
+//ГґГіГ­ГЄГ¶ВіГї Г¤Г«Гї Г§Г ГЇГЁГІГі Гў ГЄГ®Г°ГЁГ±ГІГіГўГ Г·Г  ВіГ¬ГҐГ­Ві ГґГ Г©Г«Гі 
 string get_filename() {
     string filename;
     bool valid = false;
     string invalidChars = "\\/:;*?! .,\"<>|";
 
     while (!valid) {
-    cout << "Введіть назву файлу: ";
+    cout << "Г‚ГўГҐГ¤ВіГІГј Г­Г Г§ГўГі ГґГ Г©Г«Гі: ";
     cin >> filename;
 
         if (filename.length() > 20) {
-            cout << "Невірна назва файлу. Назва файлу повинна бути не більше 20 символів." << endl;
+            cout << "ГЌГҐГўВіГ°Г­Г  Г­Г Г§ГўГ  ГґГ Г©Г«Гі. ГЌГ Г§ГўГ  ГґГ Г©Г«Гі ГЇГ®ГўГЁГ­Г­Г  ГЎГіГІГЁ Г­ГҐ ГЎВіГ«ГјГёГҐ 20 Г±ГЁГ¬ГўГ®Г«ВіГў." << endl;
         }
         else {
             bool containsInvalidChars = false;
@@ -33,7 +33,7 @@ string get_filename() {
                 }
             }
             if (containsInvalidChars) {
-                cout << "Назва файлу не може містити наступні символи " << invalidChars << endl;
+                cout << "ГЌГ Г§ГўГ  ГґГ Г©Г«Гі Г­ГҐ Г¬Г®Г¦ГҐ Г¬ВіГ±ГІГЁГІГЁ Г­Г Г±ГІГіГЇГ­Ві Г±ГЁГ¬ГўГ®Г«ГЁ " << invalidChars << endl;
 
             }
             else {
@@ -54,12 +54,12 @@ char* get_filename1() {
     char txt[] = ".txt";
 
     while (!valid) {
-        cout << "Введіть назву файлу: ";
+        cout << "Г‚ГўГҐГ¤ВіГІГј Г­Г Г§ГўГі ГґГ Г©Г«Гі: ";
         cin >> filename;
 
 
         if (strlen(filename) > max_filename_length - 1) {
-            cerr << "Невірна назва файлу. Назва файлу повинна бути не більше 20 символів." << endl;
+            cerr << "ГЌГҐГўВіГ°Г­Г  Г­Г Г§ГўГ  ГґГ Г©Г«Гі. ГЌГ Г§ГўГ  ГґГ Г©Г«Гі ГЇГ®ГўГЁГ­Г­Г  ГЎГіГІГЁ Г­ГҐ ГЎВіГ«ГјГёГҐ 20 Г±ГЁГ¬ГўГ®Г«ВіГў." << endl;
         }
         else {
             bool containsInvalidChars = false;
@@ -71,7 +71,7 @@ char* get_filename1() {
 
             }
             if (containsInvalidChars) {
-                cout << "Назва файлу не може містити наступні символи \\/:;*?! .,\"<>|" << endl;
+                cout << "ГЌГ Г§ГўГ  ГґГ Г©Г«Гі Г­ГҐ Г¬Г®Г¦ГҐ Г¬ВіГ±ГІГЁГІГЁ Г­Г Г±ГІГіГЇГ­Ві Г±ГЁГ¬ГўГ®Г«ГЁ \\/:;*?! .,\"<>|" << endl;
             }
             else {
                 valid = true;
@@ -92,15 +92,15 @@ char* get_filename1() {
 }
 
 
-//функція для створення нового файлу
+//ГґГіГ­ГЄГ¶ВіГї Г¤Г«Гї Г±ГІГўГ®Г°ГҐГ­Г­Гї Г­Г®ГўГ®ГЈГ® ГґГ Г©Г«Гі
 void create_file(const string& filename) {
     ofstream file(filename);
 
-    cout << "Створено новий файл " << filename << endl;
+    cout << "Г‘ГІГўГ®Г°ГҐГ­Г® Г­Г®ГўГЁГ© ГґГ Г©Г« " << filename << endl;
     cout << endl;
 
     if (!file.is_open()) {
-        cout << "Не вдалося створити файл " << filename << endl;
+        cout << "ГЌГҐ ГўГ¤Г Г«Г®Г±Гї Г±ГІГўГ®Г°ГЁГІГЁ ГґГ Г©Г« " << filename << endl;
     }
 
     file.close();
@@ -109,13 +109,13 @@ void create_file(const string& filename) {
 void create_file(char filename[]) {
 
     FILE* fp;
-    cout << "Створено новий файл " << filename << endl;
+    cout << "Г‘ГІГўГ®Г°ГҐГ­Г® Г­Г®ГўГЁГ© ГґГ Г©Г« " << filename << endl;
     cout << endl;
 
     fp = fopen(filename , "w");
 
     if (fp == nullptr) {
-        cout << "Не вдалося створити файл " << filename << endl;
+        cout << "ГЌГҐ ГўГ¤Г Г«Г®Г±Гї Г±ГІГўГ®Г°ГЁГІГЁ ГґГ Г©Г« " << filename << endl;
         return;
     }
 
@@ -123,7 +123,7 @@ void create_file(char filename[]) {
 }
 
 
-//функція для запису тексту в файл
+//ГґГіГ­ГЄГ¶ВіГї Г¤Г«Гї Г§Г ГЇГЁГ±Гі ГІГҐГЄГ±ГІГі Гў ГґГ Г©Г«
 void text_to_file(string& filename) {
     ofstream file(filename);
     string line;
@@ -132,13 +132,13 @@ void text_to_file(string& filename) {
     int line_count = 0;
 
     if (!file.is_open()) {
-        cout << "Не вдалося відкрити файл " << filename << endl;
+        cout << "ГЌГҐ ГўГ¤Г Г«Г®Г±Гї ГўВіГ¤ГЄГ°ГЁГІГЁ ГґГ Г©Г« " << filename << endl;
         return;
     }
 
     cout << "-------------------------------------------------------"<< endl;
-    cout << "Введіть текст, який бажаєте записати у файл для подальшого шифрування " << filename << endl;
-    cout << "Натисніть 1, щоб завершити запис."<< endl;
+    cout << "Г‚ГўГҐГ¤ВіГІГј ГІГҐГЄГ±ГІ, ГїГЄГЁГ© ГЎГ Г¦Г ВєГІГҐ Г§Г ГЇГЁГ±Г ГІГЁ Гі ГґГ Г©Г« Г¤Г«Гї ГЇГ®Г¤Г Г«ГјГёГ®ГЈГ® ГёГЁГґГ°ГіГўГ Г­Г­Гї " << filename << endl;
+    cout << "ГЌГ ГІГЁГ±Г­ВіГІГј 1, Г№Г®ГЎ Г§Г ГўГҐГ°ГёГЁГІГЁ Г§Г ГЇГЁГ±."<< endl;
     cout << endl;
 
     while (getline(cin, line)) {
@@ -148,7 +148,7 @@ void text_to_file(string& filename) {
         curr_size += line.length();
         line_count++;
         if (curr_size > max_size) {
-            cout << "Помилка вводу. Розмір файлу не має перевищувати 10 МВ" << endl;
+            cout << "ГЏГ®Г¬ГЁГ«ГЄГ  ГўГўГ®Г¤Гі. ГђГ®Г§Г¬ВіГ° ГґГ Г©Г«Гі Г­ГҐ Г¬Г Вє ГЇГҐГ°ГҐГўГЁГ№ГіГўГ ГІГЁ 10 ГЊГ‚" << endl;
             file.close();
             remove(filename.c_str());
             exit(1);
@@ -159,13 +159,13 @@ void text_to_file(string& filename) {
     file.close();
 
     cout << endl;
-    cout << "Запис завершено." << endl;
+    cout << "Г‡Г ГЇГЁГ± Г§Г ГўГҐГ°ГёГҐГ­Г®." << endl;
     cout << "-------------------------------------------------------" << endl;
     cout << endl;
 
     cout << endl;
     cout << "-------------------------------------------------------" << endl;
-    cout << "Вміст створеного файлу:" << endl;
+    cout << "Г‚Г¬ВіГ±ГІ Г±ГІГўГ®Г°ГҐГ­Г®ГЈГ® ГґГ Г©Г«Гі:" << endl;
     
 
 
@@ -176,13 +176,13 @@ void text_to_file(char* filename) {
     char line[7000];
 
     if (fp == nullptr) {
-        cout << "Не вдалося відкрити файл " << filename << endl;
+        cout << "ГЌГҐ ГўГ¤Г Г«Г®Г±Гї ГўВіГ¤ГЄГ°ГЁГІГЁ ГґГ Г©Г« " << filename << endl;
         return;
     }
 
     cout << "-------------------------------------------------------" << endl;
-    cout << "Введіть текст, який бажаєте записати у файл для подальшого шифрування " << filename << endl;
-    cout << "Натисніть 1, щоб завершити запис." << endl;
+    cout << "Г‚ГўГҐГ¤ВіГІГј ГІГҐГЄГ±ГІ, ГїГЄГЁГ© ГЎГ Г¦Г ВєГІГҐ Г§Г ГЇГЁГ±Г ГІГЁ Гі ГґГ Г©Г« Г¤Г«Гї ГЇГ®Г¤Г Г«ГјГёГ®ГЈГ® ГёГЁГґГ°ГіГўГ Г­Г­Гї " << filename << endl;
+    cout << "ГЌГ ГІГЁГ±Г­ВіГІГј 1, Г№Г®ГЎ Г§Г ГўГҐГ°ГёГЁГІГЁ Г§Г ГЇГЁГ±." << endl;
     cout << endl;
 
     while (scanf(" %[^\n]%*c", line)) {
@@ -190,7 +190,7 @@ void text_to_file(char* filename) {
             break;
         }
         else if (strlen(line) > 7000) {
-            cout << "Рядок має бути менше 4192 символів. Спробуйте ще раз." << endl;
+            cout << "ГђГїГ¤Г®ГЄ Г¬Г Вє ГЎГіГІГЁ Г¬ГҐГ­ГёГҐ 4192 Г±ГЁГ¬ГўГ®Г«ВіГў. Г‘ГЇГ°Г®ГЎГіГ©ГІГҐ Г№ГҐ Г°Г Г§." << endl;
             continue;
         }
         fprintf(fp, "%s \n", line);
@@ -198,18 +198,18 @@ void text_to_file(char* filename) {
     fclose(fp);
 
     cout << endl;
-    cout << "Запис завершено." << endl;
+    cout << "Г‡Г ГЇГЁГ± Г§Г ГўГҐГ°ГёГҐГ­Г®." << endl;
     cout << "-------------------------------------------------------" << endl;
     cout << endl;
 
     cout << endl;
     cout << "-------------------------------------------------------" << endl;
-    cout << "Вміст створеного файлу:" << endl;
+    cout << "Г‚Г¬ВіГ±ГІ Г±ГІГўГ®Г°ГҐГ­Г®ГЈГ® ГґГ Г©Г«Гі:" << endl;
     cout << endl;
 }
 
 
-//функція для відкриття файлу та відображення його змісту
+//ГґГіГ­ГЄГ¶ВіГї Г¤Г«Гї ГўВіГ¤ГЄГ°ГЁГІГІГї ГґГ Г©Г«Гі ГІГ  ГўВіГ¤Г®ГЎГ°Г Г¦ГҐГ­Г­Гї Г©Г®ГЈГ® Г§Г¬ВіГ±ГІГі
 void open_file(string& filename) {
     ifstream file(filename);
     string line;
@@ -218,7 +218,7 @@ void open_file(string& filename) {
 
        /* cout << endl;
         cout << "-------------------------------------------------------" << endl;
-        cout << "Вміст файлу:" << endl;
+        cout << "Г‚Г¬ВіГ±ГІ ГґГ Г©Г«Гі:" << endl;
         cout << endl;*/
 
         while (getline(file, line)) {
@@ -230,7 +230,7 @@ void open_file(string& filename) {
 
     }
     else {
-        cout << "Неможливо відкрити файл" << endl;
+        cout << "ГЌГҐГ¬Г®Г¦Г«ГЁГўГ® ГўВіГ¤ГЄГ°ГЁГІГЁ ГґГ Г©Г«" << endl;
     }
 }
 void open_file(char* filename) {
@@ -240,7 +240,7 @@ void open_file(char* filename) {
 
     /*cout << endl;
     cout << "-------------------------------------------------------" << endl;
-    cout << "Вміст файлу:" << endl;
+    cout << "Г‚Г¬ВіГ±ГІ ГґГ Г©Г«Гі:" << endl;
     cout << endl;*/
 
     while (fgets(line, 7000, fp)) {
@@ -254,16 +254,16 @@ void open_file(char* filename) {
 }
 
 
-//функція для введення К
+//ГґГіГ­ГЄГ¶ВіГї Г¤Г«Гї ГўГўГҐГ¤ГҐГ­Г­Гї ГЉ
 int enter_k() {
     int k;
     bool valid = false;
 
     while (!valid) {
-        cout << "Введіть К (кількість елементів для розбиття на групи)" << endl;
+        cout << "Г‚ГўГҐГ¤ВіГІГј ГЉ (ГЄВіГ«ГјГЄВіГ±ГІГј ГҐГ«ГҐГ¬ГҐГ­ГІВіГў Г¤Г«Гї Г°Г®Г§ГЎГЁГІГІГї Г­Г  ГЈГ°ГіГЇГЁ)" << endl;
         cin >> k;
         if (k > 20) {
-            cout << "К має бути не більше 20" << endl;
+            cout << "ГЉ Г¬Г Вє ГЎГіГІГЁ Г­ГҐ ГЎВіГ«ГјГёГҐ 20" << endl;
         }
         else {
             valid = true;
@@ -273,7 +273,7 @@ int enter_k() {
 }
 
 
-//функція для зворотного запису символів в рядку
+//ГґГіГ­ГЄГ¶ВіГї Г¤Г«Гї Г§ГўГ®Г°Г®ГІГ­Г®ГЈГ® Г§Г ГЇГЁГ±Гі Г±ГЁГ¬ГўГ®Г«ВіГў Гў Г°ГїГ¤ГЄГі
 string reverse_string(string line) {
     reverse(line.begin(), line.end());
     return line;
@@ -287,7 +287,7 @@ char* reverse_string(char* line, int k) {
 }
 
 
-//функція для шифрування тексту в рядках
+//ГґГіГ­ГЄГ¶ВіГї Г¤Г«Гї ГёГЁГґГ°ГіГўГ Г­Г­Гї ГІГҐГЄГ±ГІГі Гў Г°ГїГ¤ГЄГ Гµ
 string encrypt_string(string line, int k) {
 
     string result = "";
@@ -316,7 +316,7 @@ char* encrypt_string(char* line, int k, int n) {
 }
 
 
-//функція для запису в файл шифрування тексту в рядках
+//ГґГіГ­ГЄГ¶ВіГї Г¤Г«Гї Г§Г ГЇГЁГ±Гі Гў ГґГ Г©Г« ГёГЁГґГ°ГіГўГ Г­Г­Гї ГІГҐГЄГ±ГІГі Гў Г°ГїГ¤ГЄГ Гµ
 void encryption(string& filename, int k) {
 
     ifstream infile(filename);
@@ -331,7 +331,7 @@ void encryption(string& filename, int k) {
     outfile.close();
 
     cout << endl;
-    //cout << "Вміст зашифрованого файлу:" << endl;
+    //cout << "Г‚Г¬ВіГ±ГІ Г§Г ГёГЁГґГ°Г®ГўГ Г­Г®ГЈГ® ГґГ Г©Г«Гі:" << endl;
     //ifstream inputfile("encrypted.txt");
     //cout << inputfile.rdbuf();
     //inputfile.close();
@@ -356,12 +356,12 @@ void encryption(char* filename, int k) {
     fclose(outf);
 
     cout << endl;
-    //cout << "Вміст зашифрованого файлу:" << endl;
+    //cout << "Г‚Г¬ВіГ±ГІ Г§Г ГёГЁГґГ°Г®ГўГ Г­Г®ГЈГ® ГґГ Г©Г«Гі:" << endl;
     //open_file(encryptedfilename);
 }
 
 
-//функція для відбору непарних рядків
+//ГґГіГ­ГЄГ¶ВіГї Г¤Г«Гї ГўВіГ¤ГЎГ®Г°Гі Г­ГҐГЇГ Г°Г­ГЁГµ Г°ГїГ¤ГЄВіГў
 void choose_line() {
 
     ifstream inFile("encrypted.txt");
@@ -400,7 +400,7 @@ void choose_line1() {
 }
 
 
-//функція для перевірки латинських символів
+//ГґГіГ­ГЄГ¶ВіГї Г¤Г«Гї ГЇГҐГ°ГҐГўВіГ°ГЄГЁ Г«Г ГІГЁГ­Г±ГјГЄГЁГµ Г±ГЁГ¬ГўГ®Г«ВіГў
 bool is_word_latin(string word) {
     for (int i = 0; i < word.length(); i++) {
         if (!((word[i] >= 'a' && word[i] <= 'z' ) || (word[i] >= 'A' && word[i] <= 'Z'))) {
@@ -421,7 +421,7 @@ bool is_word_latin(char* word, int n) {
 }
 
 
-//функція для видалення латинських слів
+//ГґГіГ­ГЄГ¶ВіГї Г¤Г«Гї ГўГЁГ¤Г Г«ГҐГ­Г­Гї Г«Г ГІГЁГ­Г±ГјГЄГЁГµ Г±Г«ВіГў
 void remove_latin_words() {
     ifstream input_file("choose_line.txt");
     ofstream output_file("clean_latin.txt");
@@ -454,7 +454,7 @@ void remove_latin_words() {
     output_file.close();
 
     cout << "-------------------------------------------------------" << endl;
-    cout << "Вміст зашифрованого нового файлу:" << endl;
+    cout << "Г‚Г¬ВіГ±ГІ Г§Г ГёГЁГґГ°Г®ГўГ Г­Г®ГЈГ® Г­Г®ГўГ®ГЈГ® ГґГ Г©Г«Гі:" << endl;
     cout << endl;
 }
 void remove_latin_words1() {
@@ -497,123 +497,10 @@ void remove_latin_words1() {
     fclose(outf);
 
     cout << "-------------------------------------------------------" << endl;
-    cout << "Вміст зашифрованого нового файлу:" << endl;
+    cout << "Г‚Г¬ВіГ±ГІ Г§Г ГёГЁГґГ°Г®ГўГ Г­Г®ГЈГ® Г­Г®ГўГ®ГЈГ® ГґГ Г©Г«Гі:" << endl;
     cout << endl;
 }
 
-
-
-
-
-
-
-
-//виправити 1
-//написати перевірки на довжину рядка
-//перевірки на ввід 
-
-
-
-
-//зашифрувати кожен рядок тексту наступним чином: 
-//текст розбивається на групи з К елементів(К вводиться з клавіатури), 
-//в кожній групі символи, включаючи пробіли, записуються у зворотному порядку. 
-//Кожен рядок непарної довжини зміненого файлу переписати в новий файл. 
-//У кожному рядку нового файлу видалити всі слова, 
-//що складаються виключно із латинських літер. 
-//Вивести вміст вхідного і створеного файлів
-
-
-/*
-* 
-* In Winter I get up at night
-And dress by yellow candle light.
-In Summer, quite the other way,
-I have to go to bed by day.
-I have to go to bed and see
-
-16
-19
-19
-13
-23
-19
-
-Думи my думи мої,
-Лихо мені with вами!
-Нащо стали на paper
-Sad рядами?.
-Чом вас wind не розвіяв
-In степу як пилину??
-
-
-
-
-напиши перевірку на символи та довжину назви файлу яку може ввести  користувач
-
-просто модифікуй цю функцію, не пояснюючи
-
-char* get_filename1() {
-
-    char* filename = new char[1];
-    cout << "Введіть назву файлу: ";
-    cin >> filename;
-    return filename;
-
-}
-
-#include <iostream>
-#include <string>
-#include <cstring>
-using namespace std;
-
-char* get_filename1() {
-    const int MAX_FILENAME_LENGTH = 50;
-    char* filename = new char[MAX_FILENAME_LENGTH];
-    cout << "Введіть назву файлу: ";
-    cin >> filename;
-
-    // перевірка довжини назви файлу
-    if (strlen(filename) > MAX_FILENAME_LENGTH - 1) {
-        cerr << "Помилка: назва файлу занадто довга.\n";
-        exit(1);
-    }
-
-    //
-
-
-
-
-
-
-напиши перевірку на те скільки символів користувач може ввести в файл
-модифікуй цю функцію
-
-
-додай до цієї функції перевірку на те скільки символів ввів користувач
-
-void text_to_file(char* filename) {
-    FILE* fp;
-    fp = fopen(filename, "w");
-    char line[4192];
-    cout << "Введіть текст " << filename << endl;
-    cout << "Натисніть 1, щоб завершити запис." << endl;
-
-    while (scanf(" %[^\n]%*c", line)) {
-        if (line[0] == '1' && strlen(line) == 1) {
-            break;
-        }
-        fprintf(fp, "%s \n", line);
-    }
-    fclose(fp);
-}
-
-
-
-
-
-
-*/
 
 
 
